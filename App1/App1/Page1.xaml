@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="App1.Page1">
+  <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center" Padding="0,64,0,0">
+          <StackLayout Orientation="Horizontal" WidthRequest="200" HeightRequest="44">
+            <Entry  Text="{Binding OneData.intBase}" />
+            <Image Source="like.png"><Image.GestureRecognizers>
+              <TapGestureRecognizer Command="{Binding CmdAdd}" CommandParameter="{Binding OneData}" />
+            </Image.GestureRecognizers></Image>
+            <Label  Text="=" />
+            <Label  Text="{Binding OneData.intResult}" />
+          </StackLayout>
+    
+    <Label Text="-------------------------------------------" />
+    
+    <ListView ItemsSource ="{Binding ListData}" >
+      <ListView.ItemTemplate><DataTemplate><ViewCell><ViewCell.View>
+          <StackLayout Orientation="Horizontal" WidthRequest="200" HeightRequest="44">
+            <Entry  Text="{Binding intBase}" />
+        <!--<Image Source="Default.png"><Image.GestureRecognizers>
+              <TapGestureRecognizer Command="{Binding CmdAdd}" CommandParameter="{Binding}" />
+            </Image.GestureRecognizers></Image>-->
+            <Image Source="like.png"><Image.GestureRecognizers>
+              <TapGestureRecognizer Tapped="OnClicked" />
+            </Image.GestureRecognizers></Image>
+            <Label  Text="=" />
+            <Label  Text="{Binding intResult}" />
+          </StackLayout>
+      </ViewCell.View></ViewCell></DataTemplate></ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+</ContentPage>
